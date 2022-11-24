@@ -1,0 +1,46 @@
+class Parser:
+    def __init__(self, file):
+        self.file = file
+
+    def append_file(self):
+        with open(self.file) as f:
+            internal_value = f.readlines()
+        return internal_value
+
+file12=Parser("example.txt")
+print(file12.append_file())
+
+class Parser1(Parser):
+    def __init__(self, file, file1):
+        self.file = file
+        self.file1 = file1
+
+    def append_file( self):
+        with open(self.file) as f:
+            internal_value = f.readlines()
+        with open(self.file1) as f:
+            internal_value1 = f.readlines()
+        internal_value2 = internal_value + internal_value1
+
+        return internal_value2
+
+file  = Parser1("example.txt", "example1.txt")
+
+print(file.append_file())
+
+class Parser2(Parser):
+    def __init__(self, number_string):
+        self.number = number_string
+
+    def parsing(self):
+        with open(self.file) as f:
+            internal.value4 = f.read(self.number)
+
+        return internal.value4
+
+file4 = Parser2(2)
+print(file4.parsing)
+
+class Both(Parser1, Parser2):
+    pass
+
